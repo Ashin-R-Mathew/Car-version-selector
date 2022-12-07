@@ -1,0 +1,128 @@
+def col(b):
+    print("CHOOSE NUMBER OF THE COLOUR:")
+    print("1.Black")
+    print("2.White")
+    print("3.Red")
+    i=int(input("ENTER NUMBER:"))
+    if i==1:
+        return("Black")
+    elif i==2:
+        return("White")
+    elif i==3:
+        return("Red")
+
+def wh(b):
+    print("CHOOSE NUMBER OF THE WHEEL TYPE:")
+    print("1.MRF")
+    print("2.APPOLO")
+    print("3.RED ROAD")
+    i=int(input("ENTER NUMBER:"))
+    if i==1:
+        return("MRF")
+    elif i==2:
+        return("APPOLO")
+    elif i==3:
+        return("RED ROAD")
+
+def st(b):
+    print("CHOOSE NUMBER OF THE SEAT TYPE:")
+    print("1.Premium")
+    print("2.Leather")
+    print("3.Normal")
+    i=int(input("ENTER NUMBER:"))
+    if i==1:
+        return("Premium")
+    elif i==2:
+        return("Leather")
+    elif i==3:
+        return("Normal")
+
+class LX():
+    def __init__(s,car):
+        s.c=car
+    def a(self):
+        print("You can get the car",self.c,".")
+
+class LX1(LX):
+    def __init__(s,car,colour):
+        super().__init__(car)
+        s.colour=colour
+    def p(self):
+        print("You have selected",self.colour,"colour.")
+        print("You can get the car",self.c,"with the above mentioned customization.")
+
+class VX1(LX1):
+    def __init__(s,car,colour,wheel):
+        super().__init__(car,colour)
+        s.w=wheel
+    def k(self):
+        print("You have selected the",self.w,"wheel.")
+        print("You have selected", self.colour, "colour.")
+        print("You can get the car",self.c,"with the above mentioned customization.")
+class VX2(VX1):
+    def __init__(s,car,colour,wheel,seat):
+        super().__init__(car,colour,wheel)
+        s.s=seat
+    def l(self):
+        print("you have selected the",self.s,"seat.")
+        print("You have selected the",self.w,"wheel.")
+        print("You have selected", self.colour, "colour.")
+        print("You can get the car",self.c,"with the above mentioned customization.")
+
+def car():
+    print("CHOOSE THE NUMBER OF THE MODEL OF THE CAR GIVEN")
+    print("1.LX")
+    print("2.LX1")
+    print("3.VX1")
+    print("4.VX2")
+    i = int(input("Choose the number:"))
+    if i == 1:
+        h = LX("LX")
+        h.a()
+    elif i == 2:
+        color = col(i)
+        h = LX1("LX1", color)
+        h.p()
+    elif i == 3:
+        color = col(i)
+        wheel = wh(i)
+        h = VX1("VX1", color, wheel)
+        h.k()
+    elif i == 4:
+        color = col(i)
+        wheel = wh(i)
+        seat = st(i)
+        h = VX2("VX2", color, wheel, seat)
+        h.l()
+    else:
+        print("Wrong input")
+        return(car())
+
+print("CHOOSE THE NUMBER OF THE MODEL OF THE CAR GIVEN")
+print("1.LX")
+print("2.LX1")
+print("3.VX1")
+print("4.VX2")
+i=int(input("Choose the number:"))
+if i==1:
+    h=LX("LX")
+    h.a()
+elif i==2:
+    color=col(i)
+    h=LX1("LX1",color)
+    h.p()
+elif i==3:
+    color=col(i)
+    wheel=wh(i)
+    h=VX1("VX1",color,wheel)
+    h.k()
+elif i==4:
+    color=col(i)
+    wheel=wh(i)
+    seat=st(i)
+    h=VX2("VX2",color,wheel,seat)
+    h.l()
+else:
+    print("Wrong input")
+    print("Input the number given in the list")
+    car()
